@@ -1,12 +1,16 @@
 import React from 'react';
 
-const ComponentB = ({ links }) => {
+const ComponentB = ({ links, onLinkClick }) => {
   return (
-    <div>
-      <h2>List of Links:</h2>
+    <div className="component">
+      <h2>Component B</h2>
       <ul>
         {links.map((link, index) => (
-          <li key={index}>{link}</li>
+          <li key={index}>
+            <a href="#" onClick={() => onLinkClick(link)}>
+              {link}
+            </a>
+          </li>
         ))}
       </ul>
     </div>

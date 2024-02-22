@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
-import ComponentA from './ComponentA';
-import ComponentB from './ComponentB';
-import ComponentC from './ComponentC';
+import './App.css';
+import ComponentA from './components/ComponentA';
+import ComponentB from './components/ComponentB';
+import ComponentC from './components/ComponentC';
 
-const App = () => {
+function App() {
   const [links, setLinks] = useState([]);
-  const [selectedLink, setSelectedLink] = useState('');
+  const [selectedLink, setSelectedLink] = useState(null);
 
-  const handleLinkSubmit = (link) => {
-    // Kiểm tra tính hợp lệ của liên kết và chỉ cho phép từ các MXH được chỉ định
-    if (link.includes('youtube') || link.includes('tiktok') || link.includes('instagram')) {
+  const addLink = (link) => {
+    if (isValidLink(link)) {
       setLinks([link, ...links]);
     } else {
-      alert('Invalid link. Please input a link from Youtube, Tiktok, or Instagram.');
+      alert('Liên kết không hợp lệ! Vui lòng nhập liên kết từ Youtube, TikTok hoặc Instagram.');
     }
   };
 
-  const handleLinkSelect = (link) => {
+  const isValidLink = (link) => {
+    return link.includes('youtube.com') || link.includes('tiktok.com') || link.includes('instagram.com');
+  };
+
+  const handleLinkClick = (link) => {
     setSelectedLink(link);
   };
 
   return (
-    <div>
-      <ComponentA onLinkSubmit={handleLinkSubmit} />
-      <ComponentB links={links} onLinkSelect={handleLinkSelect} />
-      <ComponentC selectedLink={selectedLink} />
+    <div className="app">
+      <h1>Ứng Dụng MXH</h1>
+      <div className="container">
+        <ComponentA addLink={addLink} />
+        <ComponentB links={links} onLinkClick={handleLinkClick} />
+        <ComponentC selectedLink={selectedLink} />
+      </div>
     </div>
   );
-};
+}
 
 export default App;
