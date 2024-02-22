@@ -7,9 +7,9 @@ const ComponentB = ({ links, onLinkClick }) => {
       <ul>
         {links.map((link, index) => (
           <li key={index}>
-            <a href="#" onClick={() => onLinkClick(link)}>
+            <button href="#" onClick={() => onLinkClick(link)}>
               {link}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
