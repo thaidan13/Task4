@@ -26,12 +26,12 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Ứng Dụng MXH</h1>
+      <h1>Task 4</h1>
       <div className="container">
         <ComponentA addLink={addLink} />
         <ComponentB links={links} onLinkClick={handleLinkClick} />
         <ComponentC selectedLink={selectedLink} />
-       
+
       </div>
     </div>
   );

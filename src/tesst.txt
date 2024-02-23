@@ -1,0 +1,74 @@
+const getInstagramPostId = (url) => {
+    const match = url.match("instagram.com\/p\/([^/?#]+)");
+    if (match && match[1]) {
+      return match[1];
+    }
+    return null;
+  }
+
+  if (url.includes('www.instagram.com')) {
+    return (
+      <div className="iframe-container">
+        <iframe
+          src={`https://www.instagram.com/p/${getInstagramPostId(url)}/embed/`}
+          width="500"
+          height="500"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                    gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    );
+  }
+
+  const getTiktokPostId = (url) => {
+    const match = url.match("tiktok.com\/p\/([^/?#]+)");
+    if (match && match[1]) {
+      return match[1];
+    }
+    return null;
+  }
+
+  if (url.includes('www.tiktok.com')) {
+    return (
+      <div className="iframe-container">
+        <iframe
+          src={`https://www.tiktok.com/p/embed/${getTiktokPostId(url)}/`}
+          width="500"
+          height="500"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                    gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    );
+  }
+
+  const getYoutubePostId = (url) => {
+    const match = url.match("youtube.com\/p\/([^/?#]+)");
+    if (match && match[1]) {
+      return match[1];
+    }
+    return null;
+  }
+
+  if (url.includes('www.youtube.com')) {
+    return (
+      <div className="iframe-container">
+        <iframe
+          src={`https://www.youtube.com/p/embed/${getYoutubePostId(url)}/`}
+          width="500"
+          height="500"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                    gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    );
+  }
